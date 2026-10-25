@@ -44,11 +44,11 @@ A **fast-forward merge** occurs when the target branch has not advanced since th
 
 ### Before merge
 
-![Fast-forward before merge](./assets/preview%20images/fast_forward_before.png)
+![Fast-forward before merge](assets/preview%20images/fast_forward_before.png)
 
 ### After merge
 
-![Fast-forward after merge](./assets/preview%20images/fast_forward_after.png)
+![Fast-forward after merge](assets/preview%20images/fast_forward_after.png)
 
 **Key points:**
 - No merge commit is created by default.
@@ -70,11 +70,11 @@ A **3-way merge** is used when the branches have diverged: both have new commits
 
 ### Before merge
 
-![3-way before merge](./assets/preview%20images/three_way_before.png)
+![3-way before merge](assets/preview%20images/three_way_before.png)
 
 ### After merge
 
-![3-way after merge](./assets/preview%20images/three_way_after.png)
+![3-way after merge](assets/preview%20images/three_way_after.png)
 
 Here **M** is the new merge commit, which has two parents: **D** and **F**.
 
