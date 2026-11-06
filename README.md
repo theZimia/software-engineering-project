@@ -47,7 +47,7 @@ Make sure the following software is installed:
 Open Git Bash or Terminal and run:
 
 ```bash
-git clone <repository-url>
+git clone <https://github.com/theZimia/software-engineering-project.git>
 ```
 
 ### Step 2: Move the Project
