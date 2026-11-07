@@ -20,7 +20,7 @@ The system provides two order fulfillment options: **Delivery** and **Self Picku
 - HTML5 – Webpage Structure
 - CSS3 – Styling and Layout
 - JavaScript – Frontend Functionality
-- Bootstrap – Responsive UI Components
+- React – Responsive UI Components
 - PHP – Backend Development
 - MySQL – Database Management
 
@@ -88,7 +88,9 @@ Update the database hostname, username, password, and database name according to
 Open your browser and visit:
 
 ```text
-http://localhost/FoodieGo/
+cd FoodieGo
+npm run dev
+http://localhost:5173/
 ```
 
 The FoodieGo application should now be accessible locally.
@@ -134,7 +136,7 @@ Screenshots and video demonstrations will be added here after the application de
 
 ---
 
-**Project Name:** FoodieGo – Online Food Delivery System
+**Project Name:** FoodieGo
 
 **Course:** Software Engineering Laboratory (SWE Lab)
 
