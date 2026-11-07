@@ -1,12 +1,10 @@
-# FoodieGo – Online Food Delivery System
+# FoodieGo - Online Food Delivery System
 
-## 1. Project Title and Brief Description
+FoodieGo is a web-based food delivery application. Customers can browse food items, add them to a cart, and complete an order using either delivery or self-pickup.
 
-**FoodieGo** is a web-based online food delivery application designed to make food ordering simple and convenient. Customers can browse food items from two selected restaurants within a single location, add items to their cart, and place orders online.
+The project currently contains the React frontend for the application. Backend and database integration can be added as separate services as development continues.
 
-The system provides two order fulfillment options: **Delivery** and **Self Pickup**. It includes separate functionalities for customers, restaurant managers, and administrators to manage food items, orders, and the overall application efficiently.
-
-## 2. Team Members
+## Team Members
 
 | No. | Name | Student ID |
 |:---:|---|---|
@@ -14,130 +12,152 @@ The system provides two order fulfillment options: **Delivery** and **Self Picku
 | 2 | Umme Salma Zimia | 241400055 |
 | 3 | Tamanna Ahmed Tasin | 241400033 |
 
-## 3. Technologies and Tools Used
+## Technology Stack
 
-### Technologies
-- HTML5 – Webpage Structure
-- CSS3 – Styling and Layout
-- JavaScript – Frontend Functionality
-- React – Responsive UI Components
-- PHP – Backend Development
-- MySQL – Database Management
+### Current frontend
 
-### Development Tools
-- Visual Studio Code – Code Editor
-- XAMPP – Local Development Server
-- phpMyAdmin – Database Management
-- Git – Version Control
-- GitHub – Repository Hosting and Team Collaboration
+- React
+- React DOM
+- React Router
+- JavaScript (ES modules)
+- Vite
+- CSS
 
-## 4. Installation and Running Instructions
+### Planned application services
 
-Follow the steps below to install and run FoodieGo on your local machine.
+- Backend API: to be selected and added
+- Database: MySQL is currently the planned database
 
-### Prerequisites
+### Development tools
 
-Make sure the following software is installed:
-- [XAMPP](https://www.apachefriends.org/)
-- [Visual Studio Code](https://code.visualstudio.com/)
+- Visual Studio Code
+- Git and GitHub
+- npm
+
+## Project Structure
+
+```text
+FoodieGo/
+├── public/                 # Static public assets
+├── src/
+│   ├── assets/             # Images and other imported assets
+│   ├── components/         # Reusable React components
+│   ├── pages/              # Page-level React components
+│   ├── App.jsx             # Application routes and layout
+│   └── main.jsx            # Frontend entry point
+├── index.html
+├── package.json
+└── vite.config.js
+```
+
+## Prerequisites
+
+Install the following software:
+
+- [Node.js](https://nodejs.org/) (which includes npm)
 - [Git](https://git-scm.com/)
+- [Visual Studio Code](https://code.visualstudio.com/) (recommended)
 
-### Step 1: Clone the Repository
+XAMPP is not required to run the current frontend.
 
-Open Git Bash or Terminal and run:
+## Installation and Running
+
+Clone the repository and enter the frontend directory:
 
 ```bash
-git clone "https://github.com/theZimia/software-engineering-project.git"
+git clone https://github.com/theZimia/software-engineering-project.git
+cd software-engineering-project/FoodieGo
 ```
 
-### Step 2: Move the Project
+Install dependencies:
 
-Copy or move the cloned project folder into the XAMPP `htdocs` directory.
-
-Example:
-
-```text
-C:\xampp\htdocs\FoodieGo
+```bash
+npm install
 ```
 
-### Step 3: Start XAMPP Services
+Start the Vite development server:
 
-1. Open XAMPP Control Panel.
-2. Start Apache.
-3. Start MySQL.
-
-### Step 4: Create the Database
-
-1. Open your browser.
-2. Visit `http://localhost/phpmyadmin`.
-3. Create a new database named `foodiego`.
-4. Import the provided SQL file from the project's database folder.
-
-### Step 5: Configure Database Connection
-
-Open the database configuration file:
-
-```text
-config/database.php
-```
-
-Update the database hostname, username, password, and database name according to your local XAMPP configuration.
-
-### Step 6: Run the Application
-
-Open your browser and visit:
-
-```text
-cd FoodieGo
+```bash
 npm run dev
+```
+
+Open the URL printed in the terminal, usually:
+
+```text
 http://localhost:5173/
 ```
 
-The FoodieGo application should now be accessible locally.
+## Available Scripts
 
-## 5. Implemented Features
+Run these commands from the `FoodieGo` directory:
 
-The following features are planned for implementation in FoodieGo:
-
-| Feature | Description |
+| Command | Description |
 |---|---|
-| User Registration and Login | Allow customers to create accounts and log in securely. |
-| Restaurant Browsing | Browse food items from two selected restaurants. |
-| Food Menu | View available food items, descriptions, and prices. |
-| Shopping Cart | Add, remove, and update food items in the cart. |
-| Order Placement | Place food orders online. |
-| Delivery Option | Receive food at a selected delivery point. |
-| Self Pickup | Collect prepared orders directly from the restaurant. |
-| Order Management | Manage and update customer orders. |
-| Restaurant Management | Manage food menus and restaurant orders. |
-| Admin Management | Manage users, restaurants, and overall application activities. |
-| Order Status | Check the current status of placed orders. |
+| `npm run dev` | Start the development server |
+| `npm run build` | Create a production build |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint` | Check the frontend source with Oxlint |
 
-## 6. Screenshots and Video Demonstration
+## Where to Put the Database
 
-Screenshots and video demonstrations will be added here after the application development is completed.
+Yes, keep database-related files in a separate top-level folder. The database server itself does not live inside the React app; only its schema, migrations, seed data, and documentation should be stored in the repository.
 
-### Application Screenshots
+A recommended structure is:
 
-| Page | Screenshot |
+```text
+software-engineering-project/
+├── FoodieGo/               # React/Vite frontend
+├── backend/                # Backend API and server-side code
+│   ├── src/
+│   ├── .env.example        # Database connection variable names only
+│   └── package.json        # Or the relevant backend manifest
+├── database/               # Database scripts, not the database server
+│   ├── migrations/         # Versioned schema changes
+│   ├── seed/               # Development/sample data
+│   └── schema.sql          # Optional complete initial schema
+└── Docs/
+```
+
+The React frontend should call the backend API. It should **not** contain database credentials or connect directly to MySQL, because browser code is public and direct access would expose the database.
+
+When the backend and database are added:
+
+1. Put API/server code in `backend/`.
+2. Put SQL schema, migrations, and seed scripts in `database/`.
+3. Store local connection settings in an uncommitted `backend/.env` file.
+4. Commit only a safe `backend/.env.example` containing placeholder values.
+5. Configure the frontend with a public API base URL, such as `VITE_API_URL`, when needed.
+
+The existing database design notes are available in [Docs/database.md](Docs/database.md).
+
+## Implemented and Planned Features
+
+| Feature | Status |
 |---|---|
-| Homepage | To be added |
-| Restaurant Listing | To be added |
-| Food Menu | To be added |
-| Shopping Cart | To be added |
-| Checkout Page | To be added |
-| Customer Dashboard | To be added |
-| Restaurant Dashboard | To be added |
-| Admin Dashboard | To be added |
+| Home page | Frontend in progress |
+| Restaurant and food browsing | Frontend in progress |
+| Food menu | Frontend in progress |
+| Shopping cart | Frontend in progress |
+| Checkout page | Frontend in progress |
+| User registration and login | UI present; backend integration pending |
+| Order placement | Backend integration pending |
+| Delivery and self-pickup processing | Backend integration pending |
+| Order management | Backend integration pending |
+| Restaurant management | Planned |
+| Admin management | Planned |
 
-### Video Demonstration
+## Documentation
 
-**Project Demo Video:** To be added.
+- [Frontend notes](Docs/frontend.md)
+- [Backend notes](Docs/backend.md)
+- [Database design](Docs/database.md)
+
+## Screenshots and Demonstration
+
+Screenshots and a video demonstration will be added as the application is completed.
 
 ---
 
-**Project Name:** FoodieGo
-
+**Project:** FoodieGo
 **Course:** Software Engineering Laboratory (SWE Lab)
-
-**Project Type:** Academic Mini Project
+**Project type:** Academic mini project
