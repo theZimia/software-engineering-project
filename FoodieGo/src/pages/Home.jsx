@@ -1,6 +1,6 @@
 import "./Home.css";
 import { Link } from "react-router-dom";
-import logo from "../assets/images/FoodieGo logo.png";
+import logo from "../assets/images/FoodieGo_logo.png";
 
 const categories = [
   { icon: "🍔", name: "Burgers", count: "12 places" },
