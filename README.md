@@ -158,6 +158,43 @@ Screenshots and a video demonstration will be added as the application is comple
 
 ---
 
+## How to use database 
+
+ 1. Pull the Project from GitHub
+   - Run git pull to get the latest project.
+   - The .sql file will also come with the project.
+2. Open XAMPP
+   - Start Apache and MySQL.
+3. Open phpMyAdmin
+   - Open http://localhost/phpmyadmin in your browser.
+4. Create a Database
+   - Create a new database with the same name used by the first
+     member.
+   - Example: foodiego_db
+5. Import the SQL File
+   - Select the database and go to the Import option.
+   - Select the .sql file from the project and import it.
+   - All tables and database structures will be added.
+6. Connect the Database to the Project
+   - Open the database configuration file.
+   - Set your local MySQL host, username, password, and database
+     name.
+7. Run the Project
+   - Run the project and check if the database connection works
+     properly.
+8. Start Working
+   - Now you can Insert, Update, Delete, and Fetch data from your
+     local database.
+9. Push Changes to GitHub
+   - Push your code changes to GitHub.
+   - If you change the database structure, also push the updated
+     .sql file.
+Note: Each member uses a separate local database on their own
+computer. Everyone should use the same SQL file to create the
+database.
+
+---
+
 **Project:** FoodieGo
 **Course:** Software Engineering Laboratory (SWE Lab)
 **Project type:** Academic mini project
