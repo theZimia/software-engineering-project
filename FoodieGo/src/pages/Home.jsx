@@ -1,6 +1,10 @@
 import "./Home.css";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/FoodieGo_logo.png";
+import heroFood from "../assets/Category_img/Desserts/Desserts.jpg";
+
+
+
 
 const categories = [
   { icon: "🍔", name: "Burgers", count: "12 places" },
@@ -85,7 +89,7 @@ export default function Home() {
             role="img"
             aria-label="Bowl of noodles"
           >
-            🍜
+        <img src={heroFood} alt="Delicious desserts" className="home-food-image" />
           </div>
           <div className="home-floating-card home-rating-card">
             <span className="home-card-icon">★</span>
