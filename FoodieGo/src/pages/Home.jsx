@@ -1,10 +1,16 @@
 import "./Home.css";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/FoodieGo_logo.png";
-import heroFood from "../assets/Category_img/Desserts/Desserts.jpg";
 
-
-
+const images = import.meta.glob(
+  "../assets/Category_img/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}",
+  {
+    eager: true,
+    query: "?url",
+    import: "default",
+  },
+);
+const getImage = (path) => images[`../assets/Category_img/${path}`];
 
 const categories = [
   { icon: "🍔", name: "Burgers", count: "12 places" },
@@ -32,14 +38,13 @@ const benefits = [
 ];
 
 export default function Home() {
-
   return (
     <main className="home-page">
       <header className="home-header">
         <Link className="home-brand" to="/" aria-label="FoodieGo home">
           <img src={logo} alt="FoodieGo" />
         </Link>
-		
+
         <nav className="home-nav" aria-label="Main navigation">
           <Link to="/menu">Menu</Link>
           <Link to="/my-orders">My orders</Link>
@@ -49,7 +54,6 @@ export default function Home() {
         </nav>
       </header>
       <section className="home-hero">
-
         <div className="home-hero-content">
           <p className="home-eyebrow">Good food. Good mood.</p>
           <h1>
@@ -72,9 +76,24 @@ export default function Home() {
           </div>
           <div className="home-trust">
             <div className="home-avatar-stack" aria-hidden="true">
-              <span>👩🏻</span>
-              <span>👨🏽</span>
-              <span>👩🏿</span>
+              <span>
+                <img
+                  src={getImage("PeoplePic/zimiapic.PNG")}
+                  alt="Breakfast"
+                />{" "}
+              </span>
+              <span>
+                <img
+                  src={getImage("PeoplePic/zimiapic.PNG")}
+                  alt="Breakfast"
+                />{" "}
+              </span>
+              <span>
+                <img
+                  src={getImage("PeoplePic/musa.jpg")}
+                  alt="Breakfast"
+                />{" "}
+              </span>
             </div>
             <p>
               <strong>2,000+</strong> happy food lovers
@@ -89,7 +108,11 @@ export default function Home() {
             role="img"
             aria-label="Bowl of noodles"
           >
-        <img src={heroFood} alt="Delicious desserts" className="home-food-image" />
+            <img
+              src={images["../assets/Category_img/Desserts/Desserts.jpg"]}
+              alt="Delicious desserts"
+              className="home-food-image"
+            />
           </div>
           <div className="home-floating-card home-rating-card">
             <span className="home-card-icon">★</span>
@@ -121,14 +144,8 @@ export default function Home() {
 
         <div className="home-category-grid">
           {categories.map((category) => (
-            <Link className="home-category-card" 
-			to="/menu" 
-			key={category.name}
-			>
-				
-              <span className="home-category-icon" >
-                {category.icon}
-              </span>
+            <Link className="home-category-card" to="/menu" key={category.name}>
+              <span className="home-category-icon">{category.icon}</span>
               <strong>{category.name}</strong>
               <small>{category.count}</small>
             </Link>
